@@ -21,10 +21,12 @@ sources = files(
 
 if go.found()
   custom_target(
-    'toolbox-go',
+    'toolbox',
     build_by_default: true,
     command: [go_build_wrapper_program, meson.current_source_dir(), meson.current_build_dir()],
     input: sources,
+    install: true,
+    install_dir: get_option('bindir'),
     output: 'toolbox',
   )
 endif
